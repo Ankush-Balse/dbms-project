@@ -26,34 +26,34 @@ export default function Login() {
 
             history.push('/profile');
         } catch(err) {
-            alert('Falha no login, tente novamente.');
+            alert('Failed to login. Try again');
         }
     }
 
     return (
         <div className="login-container">
             <section className="form">
-                <img src={logo} alt="FGAirlines" />
+                <img src={logo} alt="SomeName" />
                 
                 <form onSubmit={handleLogin}>
-                    <h1>Faça seu login</h1>
+                    <h1>Login</h1>
 
-                    <input placeholder="Seu E-mail" 
+                    <input placeholder="Enter E-mail" 
                         value={email}
                         onChange={e=>setEmail(e.target.value)}
                         style={{marginBottom: "10px"}}
                     />
-                    <input placeholder="Sua Senha" 
+                    <input placeholder="Enter Password" 
                         type="password"
                         value={password}
                         onChange={e=>setPassword(e.target.value)}
                         style={{marginBottom: "5px"}}
                     />
-                    <button className="button" type="submit">Entrar</button>
+                    <button className="button" type="submit">Login</button>
 
                     <Link className="back-link" to="/register">
                         <FiUserPlus size={16} color="#17333C" />
-                        Não tem cadastro? Registre-se
+                        New user? Register
                     </Link>
                 </form>
             </section>

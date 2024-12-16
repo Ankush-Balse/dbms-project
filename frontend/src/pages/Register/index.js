@@ -29,10 +29,10 @@ export default function Register() {
 
         try{
             const response = await api.post('airlines', data);
-            alert(`Cadastro realizado com sucesso!`);
+            alert(`Registration successful!`);
             history.push('/');
         }catch(err){
-            alert('Erro no cadastro, tente novamente.');
+            alert('Registration failed, please try again.');
         }
     }
 
@@ -40,43 +40,37 @@ export default function Register() {
         <div className="register-container">
             <div className="content">
                 <section>
-                    <img src={logo} alt="FGAirlines" />
+                    <img src={logo} alt="SomeName" />
 
-                    <h1>Cadastro</h1>
-                    <p>Cadastre sua linha aérea e começe a ajudar pessoas a encontrarem suas promoções agora mesmo!</p>
+                    <h1>Register</h1>
+                    <p>Register yourself and start booking now!</p>
 
                     <Link className="back-link" to="/">
                         <FiArrowLeft size={16} color="#17333C" />
-                        Voltar
+                        Go Back
                     </Link>
                 </section>
 
                 <form onSubmit={handleRegister}>
-                    <input placeholder="Nome da linha aérea" 
+                    <input placeholder="Name" 
                         value={name}
                         onChange={e=>setName(e.target.value)}
                     />
-                    <input type="email" placeholder="E-mail" 
+                    <input type="email" placeholder="Email" 
                         value={email}
                         onChange={e=>setEmail(e.target.value)}
                     />
-                    <input type="password" placeholder="Senha" 
+                    <input type="password" placeholder="Password" 
                         value={password}
                         onChange={e=>setPassword(e.target.value)}
                     />
-                    <input placeholder="Cidade" 
+                    <input placeholder="City" 
                         value={city}
                         onChange={e=>setCity(e.target.value)}
                     />
                     <div className="form-group">
-                        <input placeholder="UF" style={{ width: 80 }} 
-                            value={uf}
-                            onChange={e=>setUf(e.target.value)}
-                        />
-                        <button type="submit">Cadastrar</button>
+                        <button type="submit">Register</button>
                     </div>
-                    
-                        
                 </form>
             </div>
         </div>

@@ -6,13 +6,13 @@ import api from '../../services/api';
 
 import './styles.css';
 
-import logo from '../../assets/logo.svg'
+import logo from '../../assets/logo.svg';
 
 export default function NewFlight() {
-    const [destiny, setDestiny] = useState('');
-    const [data, setData] = useState('');
-    const [hour, setHour] = useState('');
-    const [value, setValue] = useState('');
+    const [destiny, setDestiny] = useState(''); 
+    const [data, setData] = useState(''); 
+    const [hour, setHour] = useState('');  
+    const [value, setValue] = useState('');  
 
     const history = useHistory();
 
@@ -31,13 +31,13 @@ export default function NewFlight() {
         try {
             await api.post('flights', dataFlight, {
                 headers: {
-                    Authorization: airlineId,
+                    Authorization: airlineId, 
                 }
-            })
+            });
 
-            history.push('/profile');
+            history.push('/profile'); 
         } catch(err) {
-            alert('Erro ao criar novo voo, tente novamente.');
+            alert('Error creating new flight, please try again.'); 
         }
     }
 
@@ -45,43 +45,41 @@ export default function NewFlight() {
         <div className="new-flight-container">
             <div className="content">
                 <section>
-                    <img src={logo} alt="FGAirlines" />
+                    <img src={logo} alt="SomeName" />
 
-                    <h1>Cadastrar novo voo</h1>
-                    <p>Cadastre um novo voo e coloque-o para venda agora mesmo!</p>
+                    <h1>Register New Flight</h1>
+                    <p>Register a new flight and start travelling right now!</p>
 
                     <Link className="back-link" to="/profile">
                         <FiArrowLeft size={16} color="#17333C" />
-                        Voltar
+                        Go Back
                     </Link>
                 </section>
 
                 <form onSubmit={handleNewFlight}>
                     <input 
-                        placeholder="Destino" 
+                        placeholder="Destination" 
                         value={destiny}
                         onChange={e => setDestiny(e.target.value)}
                     />
                     <div className="form-group">
                         <input 
-                            placeholder="Data" 
+                            placeholder="Date" 
                             value={data}
                             onChange={e => setData(e.target.value)}
                         />
                         <input 
-                            placeholder="Hora" 
+                            placeholder="Time"
                             value={hour}
                             onChange={e => setHour(e.target.value)}
                         />
                     </div>
                     <input 
-                        placeholder="Valor (em reais)" 
+                        placeholder="Price (in Rupees)"
                         value={value}
                         onChange={e => setValue(e.target.value)}
                     />
-                    <button className="button" type="submit">Cadastrar</button>
-                    
-                        
+                    <button className="button" type="submit">Register</button> 
                 </form>
             </div>
         </div>

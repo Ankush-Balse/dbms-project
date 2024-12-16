@@ -23,7 +23,7 @@ export default function Profile() {
         }).then(response => {
             setFlights(response.data);
         })
-    },[airlineId]);
+    }, [airlineId]);
 
     async function handleDeleteFlight(id) {
         try {
@@ -35,7 +35,7 @@ export default function Profile() {
 
             setFlights(flights.filter(flight => flight.id !== id));
         } catch (err) {
-            alert('Erro ao deletar voo, tente novamente.');
+            alert('Error deleting flight, please try again.');
         }
     }
 
@@ -45,30 +45,30 @@ export default function Profile() {
         history.push('/');
     }
 
-    return(
+    return (
         <div className="flights-container">
             <header>
-                <img src={logo} alt="FGAirlines" />
+                <img src={logo} alt="SomeName" />
                 
-                <Link className="button" to="/flights/new">Cadastrar novo voo</Link>
+                <Link className="button" to="/flights/new">Register a new flight</Link>
                 <button type="button" onClick={handleLogout}>
                     <FiPower size={24} color="#ffffff" />
                 </button>
             </header>
 
-            <h1>Voos Disponíveis</h1>
+            <h1>Available Flights</h1>
 
             <ul>
                 {flights.map(flight => (
                     <li key={flight.id}>
-                        <strong>DESTINO:</strong>
+                        <strong>DESTINATION:</strong>
                         <p>{flight.destiny}</p>
 
-                        <strong>DATA/HORA:</strong>
+                        <strong>DATE/TIME:</strong>
                         <p>{flight.data} - {flight.hour}</p>
 
-                        <strong>PREÇO:</strong>
-                        <p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(flight.value)}</p>
+                        <strong>PRICE:</strong>
+                        <p>{Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(flight.value)}</p>
 
                         <button onClick={() => handleDeleteFlight(flight.id)} type="button">
                             <FiTrash2 size={20} color="#17333C" />
